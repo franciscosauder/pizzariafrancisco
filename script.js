@@ -1,27 +1,41 @@
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector(".menu");
+
 hamburger.addEventListener("click", () => {
   menu.classList.toggle("show");
+});
+
+menu.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    menu.classList.remove("show");
+  });
 });
 
 const testimonials = document.querySelectorAll(".testimonial");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 let index = 0;
+
 function showTestimonial(i) {
   testimonials.forEach((t, idx) => t.classList.toggle("active", idx === i));
 }
+
 prevBtn.addEventListener("click", () => {
   index = (index - 1 + testimonials.length) % testimonials.length;
   showTestimonial(index);
 });
+
 nextBtn.addEventListener("click", () => {
   index = (index + 1) % testimonials.length;
   showTestimonial(index);
 });
 
 const faders = document.querySelectorAll(".fade-in");
-const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+const appearOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px"
+};
+
 const appearOnScroll = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -30,9 +44,11 @@ const appearOnScroll = new IntersectionObserver((entries, observer) => {
     }
   });
 }, appearOptions);
+
 faders.forEach(fader => appearOnScroll.observe(fader));
 
 const form = document.getElementById("orderForm");
+
 form.addEventListener("submit", function(e) {
   const nome = form.nome.value.trim();
   const telefone = form.telefone.value.trim();
