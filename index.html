@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="assets/img/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/img/favicon-16x16.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <title>Pizzaria Delícia</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body>
+ <header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#hero">
+      <img src="assets/img/logo.png" alt="Logo da Pizzaria Delícia" />
+      <span>Pizzaria Delícia</span>
+    </a>
+    <button class="hamburger" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="menu">
+      <a href="#beneficios">Benefícios</a>
+      <a href="#sabores">Sabores</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a class="btn-cta" href="#pedido">Peça já</a>
+    </nav>
+  </div>
+ </header>
+
+  <section id="hero" class="hero section" role="banner" aria-label="promoção">
+    <div class="overlay"></div>
+    <div class="container hero-content">
+      <h1>A pizza quentinha que chega até você!</h1>
+      <p>Ingredientes frescos, massa leve e entrega rápida.</p>
+      <a class="btn-primary" href="#pedido" aria-label="Ir para o formulário de pedido">Fazer pedido</a>
+    </div>
+  </section>
+
+  <section id="beneficios" class="section fade-in">
+    <div class="container">
+      <h2>Por que escolher nossa pizzaria?</h2>
+      <div class="cards">
+        <article class="card">
+          <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+          <h3>Ingredientes frescos</h3>
+          <p>Selecionamos os melhores ingredientes para garantir sabor e qualidade.</p>
+        </article>
+        <article class="card">
+          <i class="fa-solid fa-motorcycle" aria-hidden="true"></i>
+          <h3>Entrega rápida</h3>
+          <p>Chegamos quentinho na sua porta com logística ágil e eficiente.</p>
+        </article>
+        <article class="card">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <h3>Sabor inigualável</h3>
+          <p>Receitas especiais e massa artesanal para uma experiência única.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="sabores" class="section alt fade-in">
+    <div class="container">
+      <h2>Nossos Sabores</h2>
+      <div class="chips" role="list">
+        <button class="chip" role="listitem">Calabresa</button>
+        <button class="chip" role="listitem">Margherita</button>
+        <button class="chip" role="listitem">Frango com Catupiry</button>
+        <button class="chip" role="listitem">Portuguesa</button>
+        <button class="chip" role="listitem">Vegetariana</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="depoimentos" class="section testimonials-section fade-in">
+    <div class="container">
+      <h2>O que nossos clientes dizem</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial active">
+          <img src="assets/img/cliente.jpg" alt="Foto do cliente Francisco" />
+          <div class="content">
+            <strong>Francisco</strong>
+            <p>"Entrega super rápida, recomendo demais!"</p>
+          </div>
+        </div>
+        <div class="testimonial">
+          <img src="assets/img/abel.jpg" alt="Foto do cliente Abel" />
+          <div class="content">
+            <strong>Abel</strong>
+            <p>"Pizza maravilhosa, recomendo para toda família!"</p>
+          </div>
+        </div>
+        <div class="testimonial">
+          <img src="assets/img/gaga.jpg" alt="Foto do cliente Gaga" />
+          <div class="content">
+            <strong>Gaga</strong>
+            <p>"Sabor incrível e entrega rápida, adorei!"</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-controls">
+        <button class="btn-nav prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="btn-nav next"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="pedido" class="section divider fade-in">
+    <div class="container">
+      <h2>Peça já a sua pizza!</h2>
+      <form class="order-form" id="orderForm" action="obrigado.html" method="get">
+        <label>
+          <span>Nome completo</span>
+          <input type="text" name="nome" placeholder="Seu nome" required />
+        </label>
+        <label>
+          <span>Telefone</span>
+          <input type="tel" name="telefone" placeholder="(xx) xxxxx-xxxx" required />
+        </label>
+        <label class="full">
+          <span>Endereço de entrega</span>
+          <input type="text" name="endereco" placeholder="Rua, número, bairro" required />
+        </label>
+        <label class="full">
+          <span>Escolha do sabor</span>
+          <select name="sabor" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option>Calabresa</option>
+            <option>Margherita</option>
+            <option>Frango com Catupiry</option>
+            <option>Portuguesa</option>
+            <option>Vegetariana</option>
+          </select>
+        </label>
+        <fieldset>
+          <legend>Forma de pagamento</legend>
+          <label class="inline"><input type="radio" name="pagamento" value="dinheiro" required /> Dinheiro</label>
+          <label class="inline"><input type="radio" name="pagamento" value="cartao" /> Cartão</label>
+          <label class="inline"><input type="radio" name="pagamento" value="pix" /> Pix</label>
+        </fieldset>
+        <fieldset class="full">
+          <legend>Adicionais</legend>
+          <label class="inline"><input type="checkbox" name="borda" /> Borda recheada</label>
+          <label class="inline"><input type="checkbox" name="bebida" /> Bebida</label>
+        </fieldset>
+        <div class="full">
+          <button class="btn-primary" type="submit">Enviar Pedido</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer fade-in">
+    <div class="container foot">
+      <div class="left">
+        <small>Pizzaria (TADS)</small>
+      </div>
+      <div class="social">
+        <a aria-label="Instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a aria-label="Facebook" href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a aria-label="WhatsApp" href="#"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <div class="right">
+        <small>© 2025 Pizzaria Delícia</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
