@@ -30,12 +30,26 @@ nextBtn.addEventListener("click", () => {
   showTestimonial(index);
 });
 
-const faders = document.querySelectorAll(".fade-in");
-const appearOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px"
-};
+let startX = 0;
+let endX = 0;
 
+const slider = document.querySelector(".testimonial-slider");
+slider.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+slider.addEventListener("touchend", e => {
+  endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) {
+    index = (index + 1) % testimonials.length;
+    showTestimonial(index);
+  } else if (endX - startX > 50) {
+    index = (index - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(index);
+  }
+});
+
+const faders = document.querySelectorAll(".fade-in");
+const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 const appearOnScroll = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -44,11 +58,9 @@ const appearOnScroll = new IntersectionObserver((entries, observer) => {
     }
   });
 }, appearOptions);
-
 faders.forEach(fader => appearOnScroll.observe(fader));
 
 const form = document.getElementById("orderForm");
-
 form.addEventListener("submit", function(e) {
   const nome = form.nome.value.trim();
   const telefone = form.telefone.value.trim();
